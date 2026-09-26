@@ -174,9 +174,9 @@ if 'nb_transactions' not in st.session_state:
 
 if 'julia_security_alerts' not in st.session_state:
     st.session_state.julia_security_alerts = [
-        {"timestamp": "Aujourd'hui · 12:42", "type": "Tentative de Reverse Engineering (APK)", "niveau": "CRITIQUE", "source": "IP 197.234.12.8", "statut": "Bloqué & Patché par Julia Guard", "action": "Obfuscation réappliquée & IP bannie"},
-        {"timestamp": "Aujourd'hui · 09:15", "type": "Injection SQL détectée sur API Alipay", "niveau": "ÉLEVÉ", "source": "Requête malveillante /v1/transfer", "statut": "Bloqué & Patché par Julia Guard", "action": "Requête neutralisée & Pare-feu mis à jour"},
-        {"timestamp": "Hier · 22:04", "type": "Appareil Rooté / Jailbreaké détecté", "niveau": "MOYEN", "source": "Session ID #88412", "statut": "Accès Refusé par Julia Guard", "action": "Fermeture de session & Invalidation Token"},
+        {"timestamp": "Aujourd'hui · 12:42", "type": "Tentative de Reverse Engineering (APK)", "niveau": "CRITIQUE", "source": "IP 197.234.12.8", "statut": "Bloqué & Patché par Rolocga Guard", "action": "Obfuscation réappliquée & IP bannie"},
+        {"timestamp": "Aujourd'hui · 09:15", "type": "Injection SQL détectée sur API Alipay", "niveau": "ÉLEVÉ", "source": "Requête malveillante /v1/transfer", "statut": "Bloqué & Patché par Rolocga Guard", "action": "Requête neutralisée & Pare-feu mis à jour"},
+        {"timestamp": "Hier · 22:04", "type": "Appareil Rooté / Jailbreaké détecté", "niveau": "MOYEN", "source": "Session ID #88412", "statut": "Accès Refusé par Rolocga Guard", "action": "Fermeture de session & Invalidation Token"},
     ]
 if 'anti_crack_enabled' not in st.session_state:
     st.session_state.anti_crack_enabled = True
@@ -223,9 +223,9 @@ menu = st.sidebar.radio(
         "💳 Carte Bancaire (Visa/Mastercard/CB)",
         "💸 Envoyer vers Alipay (Express)", 
         "📱 Recharge & Retrait Mobile Money",
-        "📞 Support Vocal & Déblocage Compte (Tom AI)",
-        "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)",
-        "🤖 10 Agents Limova AI & Auto-Update",
+        "📞 Support Vocal & Déblocage Compte (Imelda Voice)",
+        "🛡️ Agent Cyber-Sécurité & Anti-Crack (Rolocga Guard)",
+        "🤖 15 Agents Rolocga AI & Auto-Update",
         "📊 Portefeuille Commission (Admin)", 
         "⚙️ Configuration Taux & Sécurité (1% à 4%)"
     ]
@@ -467,11 +467,11 @@ elif menu == "💳 Carte Bancaire (Visa/Mastercard/CB)":
             ltxcb = st.session_state.latest_tx_cb
             col_cb_a1, col_cb_a2 = st.columns(2)
             with col_cb_a1:
-                if st.button("💬 Envoyer Reçu Carte par WhatsApp (Charly+)", key="btn_cb_wa"):
-                    st.info(f"🤖 **Charly+** : Reçu de paiement carte transmis à {ltxcb['destinataire']} pour un montant de {ltxcb['montant_fcfa']:,.0f} FCFA.")
+                if st.button("💬 Envoyer Reçu Carte par WhatsApp (Rolocga WhatsApp)", key="btn_cb_wa"):
+                    st.info(f"🤖 **Rolocga WhatsApp** : Reçu de paiement carte transmis à {ltxcb['destinataire']} pour un montant de {ltxcb['montant_fcfa']:,.0f} FCFA.")
             with col_cb_a2:
-                if st.button("📧 Envoyer Facture PDF par Email (Manue)", key="btn_cb_em"):
-                    st.success(f"🤖 **Manue** : Facture bancaire officielle transmise par email sous la référence FACT-{ltxcb['id']}.")
+                if st.button("📧 Envoyer Facture PDF par Email (Rolocga Finance)", key="btn_cb_em"):
+                    st.success(f"🤖 **Rolocga Finance** : Facture bancaire officielle transmise par email sous la référence FACT-{ltxcb['id']}.")
 
     with tab_card_transfer:
         st.subheader("Transfert Direct : Carte Bancaire ➔ Alipay Chine")
@@ -608,8 +608,8 @@ elif menu == "💸 Envoyer vers Alipay (Express)":
         
         col_w1, col_w2 = st.columns(2)
         with col_w1:
-            if st.button("💬 Envoyer le reçu WhatsApp via Charly+"):
-                st.info(f"""🤖 **Charly+ (Agent WhatsApp Limova)** : 
+            if st.button("💬 Envoyer le reçu WhatsApp via Rolocga WhatsApp"):
+                st.info(f"""🤖 **Rolocga WhatsApp (Agent WhatsApp Rolocga AI)** : 
                 
 💬 *Message WhatsApp envoyé avec succès au destinataire ({ltx['destinataire']}) :*
 ------------------------------------------------
@@ -622,8 +622,8 @@ elif menu == "💸 Envoyer vers Alipay (Express)":
 ✅ Statut : Confirmé & Crédité
 ------------------------------------------------""")
         with col_w2:
-            if st.button("📧 Générer & Envoyer la Facture PDF via Manue"):
-                st.success(f"""🤖 **Manue (Agent Comptable Limova)** : 
+            if st.button("📧 Générer & Envoyer la Facture PDF via Rolocga Finance"):
+                st.success(f"""🤖 **Rolocga Finance (Agent Comptable Rolocga AI)** : 
                 
 📄 *Facture comptable officielle générée et envoyée par email !*
 - Ref Pièce : FACT-{ltx['id']}
@@ -701,11 +701,11 @@ elif menu == "📱 Recharge & Retrait Mobile Money":
             st.subheader("📱 Notification Instantanée")
             c_a1, c_a2 = st.columns(2)
             with c_a1:
-                if st.button("💬 Envoyer reçu SMS/WhatsApp via Charly+"):
-                    st.info(f"🤖 **Charly+** : Notification WhatsApp transmise à {ltxm['destinataire']} ({ltxm['compte']}) pour la recharge de {ltxm['montant_fcfa']:,.0f} FCFA.")
+                if st.button("💬 Envoyer reçu SMS/WhatsApp via Rolocga WhatsApp"):
+                    st.info(f"🤖 **Rolocga WhatsApp** : Notification WhatsApp transmise à {ltxm['destinataire']} ({ltxm['compte']}) pour la recharge de {ltxm['montant_fcfa']:,.0f} FCFA.")
             with c_a2:
-                if st.button("📊 Archiver reçu comptable via Manue"):
-                    st.success(f"🤖 **Manue** : Reçu comptable enregistré sous la référence RECU-{ltxm['id']}.")
+                if st.button("📊 Archiver reçu comptable via Rolocga Finance"):
+                    st.success(f"🤖 **Rolocga Finance** : Reçu comptable enregistré sous la référence RECU-{ltxm['id']}.")
 
     with tab2:
         st.subheader("Simulateur de Retrait Mobile Money")
@@ -766,13 +766,13 @@ elif menu == "📱 Recharge & Retrait Mobile Money":
 # -----------------------------------------------------------------------------
 # 5. AGENT CYBER-SÉCURITÉ & ANTI-CRACKING (JULIA GUARD)
 # -----------------------------------------------------------------------------
-elif menu == "📞 Support Vocal & Déblocage Compte (Tom AI)":
-    st.title("📞 Assistant Vocal Multilingue IA (Tom AI) & Centre de Déblocage Sécurisé")
+elif menu == "📞 Support Vocal & Déblocage Compte (Imelda Voice)":
+    st.title("📞 Assistant Vocal Multilingue IA (Imelda Voice AI) & Centre de Déblocage Sécurisé")
     st.markdown("""
-    L'agent **Tom AI** gère l'assistance téléphonique en temps réel dans **toutes les langues** et prend en charge la **procédure de déblocage sécurisé** en cas de blocage de compte (fausses manipulations, tentatives suspectes ou fausses consignes d'IA).
+    L'agent **Imelda Voice AI** gère l'assistance téléphonique en temps réel dans **toutes les langues** et prend en charge la **procédure de déblocage sécurisé** en cas de blocage de compte (fausses manipulations, tentatives suspectes ou fausses consignes d'IA).
     """)
     
-    st.info("🛡️ **Règle de Sécurité Absolue** : Aucun compte ne peut être débloqué sans vérification formelle de l'identité du **propriétaire légitime** (Photo Selfie + Pièce d'Identité/Passeport/Permis + Contrôle biométrique croisé par Tom AI et Julia Guard).")
+    st.info("🛡️ **Règle de Sécurité Absolue** : Aucun compte ne peut être débloqué sans vérification formelle de l'identité du **propriétaire légitime** (Photo Selfie + Pièce d'Identité/Passeport/Permis + Contrôle biométrique croisé par Imelda Voice AI et Rolocga Guard).")
     
     tab_voice, tab_unblock = st.tabs(["🎙️ Centre d'Appels Vocal Multilingue", "🔓 Procédure de Déblocage de Compte Bloqué (KYC)"])
     
@@ -810,10 +810,10 @@ elif menu == "📞 Support Vocal & Déblocage Compte (Tom AI)":
             
             num_client_call = st.text_input("Numéro du client à appeler / appelant :", "+225 07 12 34 56 78")
             
-            btn_start_call = st.button("📞 Lancer l'Appel Vocal IA avec Tom")
+            btn_start_call = st.button("📞 Lancer l'Appel Vocal IA avec Imelda Voice")
             
         with col_v2:
-            st.markdown("#### 🎧 Console d'Appel en Direct & Transcription Tom AI")
+            st.markdown("#### 🎧 Console d'Appel en Direct & Transcription Imelda Voice AI")
             
             if btn_start_call or 'call_active' not in st.session_state:
                 st.session_state.call_active = True
@@ -823,20 +823,20 @@ elif menu == "📞 Support Vocal & Déblocage Compte (Tom AI)":
                 
                 if "Mandarin" in langue_call:
                     transcription = """👤 Client : 您好，我的Alipay转账未到账，请帮我查询。(Bonjour, mon transfert Alipay n'est pas arrivé.)
-🤖 Tom AI (Chinois) : 您好！请不要担心。我正在核对您的交易记录。为保障您的资金安全，请提供您的交易单号。
+🤖 Imelda Voice AI (Chinois) : 您好！请不要担心。我正在核对您的交易记录。为保障您的资金安全，请提供您的交易单号。
 👤 Client : 好的，单号是 TX-9842。
-🤖 Tom AI : 验证成功！您的750,000 FCFA已成功兑换为888.40 CNY并实时存入您的Alipay账户。收据已发送至您的WhatsApp。"""
+🤖 Imelda Voice AI : 验证成功！您的750,000 FCFA已成功兑换为888.40 CNY并实时存入您的Alipay账户。收据已发送至您的WhatsApp。"""
                 elif "Wolof" in langue_call:
                     transcription = """👤 Client : Na nga def, dama beugua xam ndax sama xalis bi dem na Chine? (Bonjour, je veux savoir si mon argent est parti en Chine?)
-🤖 Tom AI (Wolof) : Jama rekk! Bul jaaxle, AfroPay mu ngi saytu sa dund. Reçu bi mungi ci sa WhatsApp.
+🤖 Imelda Voice AI (Wolof) : Jama rekk! Bul jaaxle, AfroPay mu ngi saytu sa dund. Reçu bi mungi ci sa WhatsApp.
 👤 Client : Dieuredief, jëfëndëlikat bu baax la!
-🤖 Tom AI : Amul solo, AfroPay mu ngi fi ngir yeen saa sune!"""
+🤖 Imelda Voice AI : Amul solo, AfroPay mu ngi fi ngir yeen saa sune!"""
                 elif "Anglais" in langue_call:
-                    transcription = """👤 Client: Hello Tom, I mistakenly typed the wrong PIN code three times and my account is locked.
-🤖 Tom AI (English): Hello! Don't panic. To protect your account from fraud, I have placed it in safe mode. I will guide you through the instant ID verification process to restore your access safely."""
+                    transcription = """👤 Client: Hello Imelda Voice, I mistakenly typed the wrong PIN code three times and my account is locked.
+🤖 Imelda Voice AI (English): Hello! Don't panic. To protect your account from fraud, I have placed it in safe mode. I will guide you through the instant ID verification process to restore your access safely."""
                 else:
-                    transcription = """👤 Client : Bonjour Tom, suite à une fausse manipulation sur mon téléphone, mon compte s'est bloqué.
-🤖 Tom AI (Français) : Bonjour ! Soyez rassuré. Par mesure de sécurité anti-fraude, le compte a été suspendu automatiquement. Je vais vous accompagner immédiatement dans la procédure de vérification d'identité pour vous réattribuer l'accès."""
+                    transcription = """👤 Client : Bonjour Imelda Voice, suite à une fausse manipulation sur mon téléphone, mon compte s'est bloqué.
+🤖 Imelda Voice AI (Français) : Bonjour ! Soyez rassuré. Par mesure de sécurité anti-fraude, le compte a été suspendu automatiquement. Je vais vous accompagner immédiatement dans la procédure de vérification d'identité pour vous réattribuer l'accès."""
                 
                 st.markdown(f"""
                 <div class="receipt-box">
@@ -845,12 +845,12 @@ elif menu == "📞 Support Vocal & Déblocage Compte (Tom AI)":
                 </div>
                 """, unsafe_allow_html=True)
                 
-                st.info("💡 **Synthèse vocale multilingue active** : Tom AI adapte son accent, son vocabulaire régional et son niveau de langage en fonction de la langue sélectionnée.")
+                st.info("💡 **Synthèse vocale multilingue active** : Imelda Voice AI adapte son accent, son vocabulaire régional et son niveau de langage en fonction de la langue sélectionnée.")
 
     with tab_unblock:
         st.subheader("🔓 Procédure Strictement Sécurisée de Déblocage de Compte")
         st.markdown("""
-        En cas de blocage de compte (fausses manipulations, fausses consignes d'IA ou tentatives de connexion suspectes), **Tom AI** impose la vérification complète de la propriété du compte avant toute réactivation.
+        En cas de blocage de compte (fausses manipulations, fausses consignes d'IA ou tentatives de connexion suspectes), **Imelda Voice AI** impose la vérification complète de la propriété du compte avant toute réactivation.
         """)
         
         st.error("🔒 **STATUT ACTUEL : COMPTE SUSPENDU (SÉCURITÉ ACTIVES)** — Motif : Détection de 3 tentatives PIN erronées ou manipulation suspecte.")
@@ -874,7 +874,7 @@ elif menu == "📞 Support Vocal & Déblocage Compte (Tom AI)":
             tel_proprio = st.text_input("Numéro de téléphone lié au compte :", "+225 07 01 02 03")
             piece_num = st.text_input("Numéro de la pièce d'identité :", "CI-2026-984210")
             
-            st.markdown("##### 4. 🛡️ Validation de Sécurité par Tom AI & Julia Guard")
+            st.markdown("##### 4. 🛡️ Validation de Sécurité par Imelda Voice AI & Rolocga Guard")
             st.checkbox("Je certifie être le propriétaire légitime et agir de mon propre gré.", value=True)
             
             btn_verify_unblock = st.button("🔓 Lancer la Vérification & Débloquer le Compte")
@@ -890,14 +890,14 @@ elif menu == "📞 Support Vocal & Déblocage Compte (Tom AI)":
                     <li><b>Titulaire Vérifié :</b> {nom_proprio} ({tel_proprio}) confirmé comme unique propriétaire légitime.</li>
                     <li><b>Sécurité Réseau :</b> Réinitialisation du code PIN et déblocage instantané de l'application.</li>
                 </ul>
-                <span class="status-success">✓ Certificat de Déblocage N° UNBLOCK-2026-8890 Émis par Tom AI</span>
+                <span class="status-success">✓ Certificat de Déblocage N° UNBLOCK-2026-8890 Émis par Imelda Voice AI</span>
             </div>
             """, unsafe_allow_html=True)
             st.balloons()
 
-elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)":
-    st.title("🛡️ Agent IA Cyber-Sécurité & Bouclier Anti-Cracking - Julia Guard")
-    st.markdown("L'agent **Julia Guard (Cyber-AI Limova)** surveille en continu l'application AfroPay Bridge, détecte les failles de sécurité, neutralise les tentatives de piratage/cracking et colmate automatiquement les failles 24h/24.")
+elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Rolocga Guard)":
+    st.title("🛡️ Agent IA Cyber-Sécurité & Bouclier Anti-Cracking - Rolocga Guard")
+    st.markdown("L'agent **Rolocga Guard (Cyber-AI Limova)** surveille en continu l'application AfroPay Bridge, détecte les failles de sécurité, neutralise les tentatives de piratage/cracking et colmate automatiquement les failles 24h/24.")
 
     # Status de sécurité global
     st.markdown("""
@@ -905,7 +905,7 @@ elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)":
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <h2 style="color: #FFC107; margin:0;">🟢 Bouclier Anti-Faille & Anti-Crack : ACTIF</h2>
-                <p style="color: #cbd5e0; margin-top:5px;">Système 100% sécurisé & crypté — Protection proactive par l'Agent Julia Guard</p>
+                <p style="color: #cbd5e0; margin-top:5px;">Système 100% sécurisé & crypté — Protection proactive par l'Agent Rolocga Guard</p>
             </div>
             <div style="text-align: right;">
                 <span class="status-success" style="font-size: 14px; padding: 6px 14px;">0 Faille Active</span>
@@ -914,7 +914,7 @@ elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)":
     </div>
     """, unsafe_allow_html=True)
 
-    tab_sec1, tab_sec2, tab_sec3 = st.tabs(["🔒 Suite Anti-Cracking & Cryptage", "🤖 Agent Julia Guard (Détection 24/7)", "🚨 Journal des Attaques Neutralisées"])
+    tab_sec1, tab_sec2, tab_sec3 = st.tabs(["🔒 Suite Anti-Cracking & Cryptage", "🤖 Agent Rolocga Guard (Détection 24/7)", "🚨 Journal des Attaques Neutralisées"])
 
     with tab_sec1:
         st.subheader("1. Protections Anti-Cracking & Anti-Piratage Intégrées")
@@ -958,8 +958,8 @@ elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)":
             """, unsafe_allow_html=True)
 
     with tab_sec2:
-        st.subheader("2. Simulateur de Détection & Auto-Correction de Failles par Julia Guard")
-        st.markdown("Testez la capacité de l'agent **Julia Guard** à détecter un essai d'intrusion, colmater la faille immédiatement et sécuriser l'application :")
+        st.subheader("2. Simulateur de Détection & Auto-Correction de Failles par Rolocga Guard")
+        st.markdown("Testez la capacité de l'agent **Rolocga Guard** à détecter un essai d'intrusion, colmater la faille immédiatement et sécuriser l'application :")
 
         attaque_type = st.selectbox(
             "Simuler une tentative d'attaque ou de faille :",
@@ -972,8 +972,8 @@ elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)":
             ]
         )
 
-        if st.button("🚀 Lancer l'attaque simulée & Tester l'Agent Julia Guard"):
-            st.info("🤖 **Julia Guard** analyse la requête et scrute la vulnérabilité en millisecondes...")
+        if st.button("🚀 Lancer l'attaque simulée & Tester l'Agent Rolocga Guard"):
+            st.info("🤖 **Rolocga Guard** analyse la requête et scrute la vulnérabilité en millisecondes...")
             
             if "Cracking" in attaque_type:
                 st.error("🚨 **ALERTE SÉCURITÉ : Tentative de Reverse Engineering détectée !**")
@@ -1000,8 +1000,8 @@ elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)":
             st.balloons()
 
     with tab_sec3:
-        st.subheader("3. Journal d'Audit & Incidents Filtrés par Julia Guard")
-        st.markdown("Historique en temps réel des failles détectées et colmatées par l'agent **Julia Guard** :")
+        st.subheader("3. Journal d'Audit & Incidents Filtrés par Rolocga Guard")
+        st.markdown("Historique en temps réel des failles détectées et colmatées par l'agent **Rolocga Guard** :")
 
         for al in st.session_state.julia_security_alerts:
             color_badge = "#e53e3e" if al["niveau"] == "CRITIQUE" else "#d97706"
@@ -1017,23 +1017,28 @@ elif menu == "🛡️ Agent Cyber-Sécurité & Anti-Crack (Julia Guard)":
             </div>
             """, unsafe_allow_html=True)
 
-elif menu == "🤖 10 Agents Limova AI & Auto-Update":
-    st.title("🤖 Équipe d'Agents IA Limova AI & Hub de Reçus Automatiques")
-    st.markdown("Découvrez les **10 agents autonomes Limova AI (dont Axel pour les Mises à Jour Automatiques)** et utilisez le hub de notification pour envoyer automatiquement des reçus d'opérations par **WhatsApp (Charly+)** ou **Email (Manue)**.")
+elif menu == "🤖 15 Agents Rolocga AI & Auto-Update":
+    st.title("🤖 Équipe d'Agents Rolocga AI & Hub de Reçus Automatiques")
+    st.markdown("Découvrez l'équipe complète des **15 agents autonomes Rolocga AI (dont Rolocga DevOps pour les Mises à Jour)** et utilisez le hub de notification pour envoyer automatiquement des reçus d'opérations par **WhatsApp (Rolocga WhatsApp)** ou **Email (Rolocga Finance)**.")
 
-    tab_agents, tab_autoupdate_axel, tab_audit_julia, tab_receipts = st.tabs(["🤖 Présentation des 10 Agents", "🔄 Auto-Update & DevOps (Axel)", "⚖️ Audit Juridique & CGU (Julia)", "🧾 Hub d'Automatisation de Reçus & Notifications"])
+    tab_agents, tab_autoupdate_devops, tab_audit_guard, tab_receipts = st.tabs(["🤖 Présentation des 15 Agents", "🔄 Auto-Update & DevOps (Rolocga DevOps)", "⚖️ Audit Juridique & CGU (Julia)", "🧾 Hub d'Automatisation de Reçus & Notifications"])
 
     agents = [
-        {"nom": "Tom", "role": "📞 Support Vocal Multilingue 24/7 & Déblocage Sécurisé (IA Voice & KYC)", "desc": "Génère et répond aux appels vocaux en toutes langues (Français, Mandarin, Anglais, Wolof, Bambara, Swahili, Lingala...). En cas de blocage de compte (fausse manip ou consigne piège), Tom exige selfie, pièce d'identité/passeport/permis et vérifie la propriété du compte avant déblocage.", "icon": "📞"},
+        {"nom": "Imelda", "role": "📞 Support Vocal Multilingue 24/7 & Déblocage Sécurisé (IA Voice & KYC)", "desc": "Génère et répond aux appels vocaux en toutes langues (Français, Mandarin, Anglais, Wolof, Bambara, Swahili, Lingala...). En cas de blocage de compte (fausse manip ou consigne piège), Imelda Voice exige selfie, pièce d'identité/passeport/permis et vérifie la propriété du compte avant déblocage.", "icon": "📞"},
         {"nom": "John", "role": "📣 Marketing & Réseaux Sociaux", "desc": "Rédige et programme les posts LinkedIn, Instagram et Facebook, crée des visuels et évalue la qualité.", "icon": "📣"},
         {"nom": "Lou", "role": "✍️ Spécialiste SEO & Rédaction Blog", "desc": "Génère et publie des articles de blog optimisés sur WordPress, gère les mots-clés et le référencement.", "icon": "✍️"},
         {"nom": "Elio", "role": "🚀 Prospection Commerciale B2B", "desc": "Automatisations de prospection ciblée sur LinkedIn et séquences d'emails pour commerçants import-export.", "icon": "🚀"},
-        {"nom": "Charly+", "role": "💬 Assistant Général Polyvalent & WhatsApp", "desc": "Répond aux requêtes d'équipe, envoie des reçus instantanés sur WhatsApp et assiste au quotidien.", "icon": "💬"},
-        {"nom": "Manue", "role": "📊 Comptabilité & Suivi Facturation", "desc": "Analyse les pièces comptables, calcule les bilans, édite les reçus officiels et factures PDF.", "icon": "📊"},
-        {"nom": "Julia", "role": "⚖️🛡️ Juridique, Conformité & Cyber-Sécurité (Julia Guard)", "desc": "Supervise les CGU, détecte les failles de sécurité, bloque les piratages/cracking et patche les failles 24/7.", "icon": "🛡️"},
+        {"nom": "Rolocga WhatsApp", "role": "💬 Assistant Général Polyvalent & WhatsApp", "desc": "Répond aux requêtes d'équipe, envoie des reçus instantanés sur WhatsApp et assiste au quotidien.", "icon": "💬"},
+        {"nom": "Rolocga Finance", "role": "📊 Comptabilité & Suivi Facturation", "desc": "Analyse les pièces comptables, calcule les bilans, édite les reçus officiels et factures PDF.", "icon": "📊"},
+        {"nom": "Julia", "role": "⚖️🛡️ Juridique, Conformité & Cyber-Sécurité (Rolocga Guard)", "desc": "Supervise les CGU, détecte les failles de sécurité, bloque les piratages/cracking et patche les failles 24/7.", "icon": "🛡️"},
         {"nom": "Rony", "role": "👥 Recrutement & Ressources Humaines", "desc": "Rédige les fiches de poste, pré-qualifie les candidats et gère le sourcing RH pour le réseau AfroPay.", "icon": "👥"},
         {"nom": "Sora", "role": "🇨🇳 Concierge Import-Export & Sourcing Chine", "desc": "Vérifie la légitimité des fournisseurs chinois sur Alipay/1688/Taobao, traduit les factures proforma et estime les frais de douane.", "icon": "🇨🇳"},
-        {"nom": "Axel", "role": "🔄 DevOps & Auto-Update Sécurisé (DevSecOps)", "desc": "Collabore avec Julia Guard pour auditer, chiffrer (AES-256/Ed25519) et déployer chaque mise à jour sans faille anti-crack.", "icon": "🔄"},
+        {"nom": "Rolocga DevOps", "role": "🔄 DevOps & Auto-Update Sécurisé (DevSecOps)", "desc": "Collabore avec Rolocga Guard pour auditer, chiffrer (AES-256/Ed25519) et déployer chaque mise à jour sans faille anti-crack.", "icon": "🔄"},
+        {"nom": "Rolocga", "role": "📦 Logistique, Transit & Cargo Chine-Afrique", "desc": "Suit en temps réel le statut des conteneurs/colis, notifie l'arrivée aux ports/aéroports et gère les étapes de dédouanement.", "icon": "📦"},
+        {"nom": "Serena", "role": "📈 Surveillance du Taux de Change & Alertes Taux", "desc": "Analyse en direct le cours Yuan (CNY) / FCFA et envoie des alertes intelligentes aux commerçants au moment le plus avantageux pour transférer.", "icon": "📈"},
+        {"nom": "Joyce", "role": "🎁 Programme de Parrainage & Cashback B2B", "desc": "Gère automatiquement l'attribution des 10% de commission de parrainage et le cashback de 0.5% reversé aux gros importateurs.", "icon": "🎁"},
+        {"nom": "Nia", "role": "🤝 Arbitrage Litiges & Assurance Fret Cargo", "desc": "Assure la médiation automatique en cas de litige avec un fournisseur chinois, gère les remboursements et les réclamations d'assurance fret.", "icon": "🤝"},
+        {"nom": "Kwame", "role": "🛃 Conformité Douanière & Fiscalité UEMOA/CEMAC", "desc": "Génère automatiquement les bordereaux de douane, calcule les taxes d'importation et vérifie la conformité des déclarations fiscales.", "icon": "🛃"},
     ]
 
     with tab_agents:
@@ -1052,10 +1057,10 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
                 """, unsafe_allow_html=True)
 
     
-    with tab_autoupdate_axel:
-        st.subheader("🔄 Système de Mise à Jour Automatique (Agent Axel - DevOps AI)")
+    with tab_autoupdate_devops:
+        st.subheader("🔄 Système de Mise à Jour Automatique (Agent Rolocga DevOps - DevOps AI)")
         st.markdown("""
-        L'agent **Axel (DevOps & Auto-Update Limova AI)** surveille l'intégrité de l'application, applique automatiquement les correctifs de sécurité transmis par **Julia Guard** et déploie les nouvelles fonctionnalités en temps réel via la technologie **Over-The-Air (OTA)** sans nécessiter de téléchargement manuel depuis le Play Store ou l'App Store.
+        L'agent **Rolocga DevOps (DevOps & Auto-Update Rolocga AI)** surveille l'intégrité de l'application, applique automatiquement les correctifs de sécurité transmis par **Rolocga Guard** et déploie les nouvelles fonctionnalités en temps réel via la technologie **Over-The-Air (OTA)** sans nécessiter de téléchargement manuel depuis le Play Store ou l'App Store.
         """)
 
         col_ax1, col_ax2 = st.columns([1.2, 1])
@@ -1071,7 +1076,7 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
             auto_apply = st.checkbox("Application automatique des patchs de sécurité (0 interruption)", value=True)
             check_integrity = st.checkbox("Vérification d'empreinte cryptographique SHA-256 avant installation", value=True)
 
-            btn_check_update = st.button("🔍 Rechercher une Mise à Jour avec l'Agent Axel")
+            btn_check_update = st.button("🔍 Rechercher une Mise à Jour avec l'Agent Rolocga DevOps")
 
         with col_ax2:
             st.markdown("#### 📊 Journal des Mises à Jour & Builds")
@@ -1081,9 +1086,9 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
                 st.success("✅ **SYSTÈME À JOUR — Version 10.0.4**")
                 st.markdown("""
                 <div class="metric-card">
-                    <h4 style="color: #FFC107;">📋 Dépôt de Patch Axel (Dernières MAJ Automatiques)</h4>
+                    <h4 style="color: #FFC107;">📋 Dépôt de Patch Rolocga DevOps (Dernières MAJ Automatiques)</h4>
                     <ul>
-                        <li><b>v10.0.4 (Aujourd'hui · 02:15) :</b> Auto-patch de sécurité transmis par Julia Guard (Injections neutralisées).</li>
+                        <li><b>v10.0.4 (Aujourd'hui · 02:15) :</b> Auto-patch de sécurité transmis par Rolocga Guard (Injections neutralisées).</li>
                         <li><b>v10.0.3 (Hier · 18:40) :</b> Optimisation du temps de réponse du paiement Carte 1-Clic (< 0.8s).</li>
                         <li><b>v10.0.2 (19/09/2026) :</b> Mise à jour automatique des taux de change CNY/FCFA en direct.</li>
                         <li><b>v10.0.1 (18/09/2026) :</b> Intégration du module d'authentification biométrique Face ID / Touch ID.</li>
@@ -1093,16 +1098,16 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
                 """, unsafe_allow_html=True)
                 st.info("💡 **Mode Over-The-Air (OTA) Actif** : Vos utilisateurs reçoivent les améliorations et correctifs directement au lancement de l'application sans aucune action requise !")
 
-    with tab_audit_julia:
-        st.subheader("⚖️ Validation des Mentions Légales & CGU par l'Agent Julia")
+    with tab_audit_guard:
+        st.subheader("⚖️ Validation des Mentions Légales & CGU par l'Agent Rolocga Guard")
         st.markdown("""
-        L'agent **Julia (Juridique & Conformité Limova AI)** passe en revue et certifie en temps réel les documents juridiques, les mentions légales et les Conditions Générales d'Utilisation (CGU) d'AfroPay Bridge.
+        L'agent **Rolocga Guard (Juridique & Conformité Rolocga AI)** passe en revue et certifie en temps réel les documents juridiques, les mentions légales et les Conditions Générales d'Utilisation (CGU) d'AfroPay Bridge.
         """)
 
         col_j1, col_j2 = st.columns([1.2, 1])
 
         with col_j1:
-            st.markdown("#### 🔍 Sélection de l'élément à auditer par Julia")
+            st.markdown("#### 🔍 Sélection de l'élément à auditer par Rolocga Guard")
             doc_type = st.radio(
                 "Document ou composant réglementaire :",
                 [
@@ -1119,10 +1124,10 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
                 value="Sévère (Banque centrale)"
             )
 
-            btn_run_julia = st.button("⚖️ Exécuter l'Audit de Conformité Juridique avec Julia")
+            btn_run_julia = st.button("⚖️ Exécuter l'Audit de Conformité Juridique avec Rolocga Guard")
 
         with col_j2:
-            st.markdown("#### 📋 Certificat de Validation Officiel par Julia")
+            st.markdown("#### 📋 Certificat de Validation Officielle par Rolocga Guard")
 
             if btn_run_julia or 'julia_certified' not in st.session_state:
                 st.session_state.julia_certified = True
@@ -1130,14 +1135,14 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
                     st.success("✅ **STATUS : CGU / CGV VALIDÉES ET CONFORMES (Score : 99/100)**")
                     st.markdown("""
                     <div class="metric-card">
-                        <h4 style="color: #FFC107;">📜 Synthèse d'Audit CGU / CGV par Julia</h4>
+                        <h4 style="color: #FFC107;">📜 Synthèse d'Audit CGU / CGV par Rolocga Guard</h4>
                         <ul>
                             <li><b>Tarification (1% - 4%) :</b> Information précontractuelle claire, affichage en direct avant validation de chaque envoi.</li>
                             <li><b>Acceptation des Cartes Bancaires :</b> Mandat de traitement conforme aux normes d'acquisition monétique (Visa / Mastercard).</li>
                             <li><b>Transferts Alipay :</b> Responsabilités de conversion FCFA/CNY clairement délimitées.</li>
                             <li><b>Droit de Rétractation :</b> Conforme à l'exemption légale sur les services financiers à exécution immédiate.</li>
                         </ul>
-                        <span class="status-success">✓ Tampon d'Approbation Juridique Julia (Legal AI)</span>
+                        <span class="status-success">✓ Tampon d'Approbation Juridique Rolocga Guard (Legal AI)</span>
                     </div>
                     """, unsafe_allow_html=True)
                 elif "Mentions Légales" in doc_type:
@@ -1151,7 +1156,7 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
                             <li><b>Directeur de Publication :</b> Jean Toto (Propriétaire / Fondateur).</li>
                             <li><b>Hébergement :</b> Infrastructure sécurisée certifiée ISO/IEC 27001 & PCI-DSS Level 1.</li>
                         </ul>
-                        <span class="status-success">✓ Tampon d'Approbation Juridique Julia (Legal AI)</span>
+                        <span class="status-success">✓ Tampon d'Approbation Juridique Rolocga Guard (Legal AI)</span>
                     </div>
                     """, unsafe_allow_html=True)
                 elif "Confidentialité" in doc_type:
@@ -1164,7 +1169,7 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
                             <li><b>Données Biométriques (Face ID) :</b> Traitement local sécurisé sans stockage externe.</li>
                             <li><b>Consentement :</b> Consentement explicite requis pour les notifications WhatsApp/Email des reçus.</li>
                         </ul>
-                        <span class="status-success">✓ Tampon d'Approbation Juridique Julia (Legal AI)</span>
+                        <span class="status-success">✓ Tampon d'Approbation Juridique Rolocga Guard (Legal AI)</span>
                     </div>
                     """, unsafe_allow_html=True)
                 else:
@@ -1206,7 +1211,7 @@ elif menu == "🤖 10 Agents Limova AI & Auto-Update":
         col_send1, col_send2 = st.columns(2)
 
         with col_send1:
-            st.markdown("#### 📱 Envoi WhatsApp via Charly+")
+            st.markdown("#### 📱 Envoi WhatsApp via Rolocga WhatsApp")
             num_whatsapp = st.text_input("Numéro WhatsApp destinataire :", "+225 07 88 99 00 11")
             if st.button("📲 Envoyer Reçu WhatsApp"):
                 cny_val = selected_tx['montant_fcfa'] * st.session_state.taux_cny
@@ -1217,14 +1222,14 @@ Montant : {selected_tx['montant_fcfa']:,.0f} FCFA (≈ {cny_val:,.2f} CNY)
 Commission : {selected_tx['commission_fcfa']:,.0f} FCFA ({selected_tx['taux_pct']:.1f}%)
 Statut : {selected_tx['statut']}
 Merci pour votre confiance ! 🌍"""
-                st.success(f"Message transmis par **Charly+** à {num_whatsapp} !")
+                st.success(f"Message transmis par **Rolocga WhatsApp** à {num_whatsapp} !")
                 st.markdown(f'<div class="receipt-box"><pre>{msg}</pre></div>', unsafe_allow_html=True)
 
         with col_send2:
-            st.markdown("#### 📧 Envoi Facture Email via Manue")
+            st.markdown("#### 📧 Envoi Facture Email via Rolocga Finance")
             email_client = st.text_input("Adresse email du destinataire :", "client@afropay.com")
             if st.button("📧 Expédier la Facture PDF"):
-                st.success(f"Facture officielle PDF transmise par l'agent **Manue** à {email_client} !")
+                st.success(f"Facture officielle PDF transmise par l'agent **Rolocga Finance** à {email_client} !")
                 st.info(f"📄 Document joint : `Facture_AfroPay_{selected_tx.get('id', 'TX-1001')}.pdf`")
 
 # -----------------------------------------------------------------------------
