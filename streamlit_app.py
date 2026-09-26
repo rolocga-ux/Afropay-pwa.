@@ -5,7 +5,7 @@ import datetime
 
 # Configuration de la page Streamlit
 st.set_page_config(
-    page_title="AfroPay Bridge - Application & Dashboard v7",
+    page_title="AfroPay Bridge - Application & Dashboard v16",
     page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -249,6 +249,34 @@ if menu == "🏠 Accueil Client (Paiement 1-Clic)":
     """, unsafe_allow_html=True)
     
     # Règle de commission en avant
+    
+    # -----------------------------------------------------------------------------
+    # BANNIÈRE INSTALLATION PWA CHROME MOBILE
+    # -----------------------------------------------------------------------------
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%); border: 2px solid #3b82f6; border-radius: 14px; padding: 20px; margin-bottom: 25px; box-shadow: 0 6px 16px rgba(0,0,0,0.35);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+            <div style="flex: 1; min-width: 280px;">
+                <h3 style="color: #60a5fa !important; margin: 0 0 8px 0; font-size: 20px;">📱 Installer AfroPay Bridge sur Smartphone (Chrome Mobile PWA)</h3>
+                <p style="color: #e2e8f0; font-size: 14px; margin: 0 0 10px 0;">
+                    Transformez ce site web en une <b>véritable application mobile</b> accessible en 1-clic depuis l'écran d'accueil de votre téléphone (Android & iOS).
+                </p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <span style="background: #1e293b; color: #f59e0b; border: 1px solid #f59e0b; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: bold;">
+                        1️⃣ Cliquez sur <span style="font-size: 16px;">⋮</span> (Menu Chrome)
+                    </span>
+                    <span style="background: #1e293b; color: #10b981; border: 1px solid #10b981; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: bold;">
+                        2️⃣ Appuyez sur « Installer l'application »
+                    </span>
+                    <span style="background: #1e293b; color: #3b82f6; border: 1px solid #3b82f6; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: bold;">
+                        3️⃣ Valider « Ajouter à l'écran d'accueil »
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     st.info("💡 **Tous Moyens de Paiement Pris en Charge** : Cartes Bancaires (Visa, Mastercard, UnionPay, CB), Mobile Money & Alipay. Commission dégressive de **1% à 4%** (montants illimités) !")
     
     st.subheader("Actions Rapides")
